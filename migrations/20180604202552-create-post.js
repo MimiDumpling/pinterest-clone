@@ -15,9 +15,6 @@ module.exports = {
       caption: {
         type: Sequelize.STRING
       },
-      userId: {
-        type: Sequelize.BIGINT
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
