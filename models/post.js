@@ -5,12 +5,13 @@ const Post = sequelize.define('post', {
     type: Sequelize.STRING, 
     primaryKey: true 
   },
-  link: {
+  title: {
+    allowNull: false,
     type: Sequelize.STRING
   },
   caption: {
-    type: Sequelize.TEXT
-  }
+    type: Sequelize.STRING
+  },
 });
 
 Post.belongsToMany( Board, { through: 'BoardPost' } );

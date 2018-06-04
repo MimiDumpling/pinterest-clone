@@ -2,7 +2,7 @@ const Sequelize = require( 'sequelize' );
 
 const User = sequelize.define('user', {
   identifier: { 
-    type: Sequelize.STRING, 
+    type: Sequelize.BIGINT, 
     primaryKey: true, 
   },  
   userName: {
@@ -11,9 +11,6 @@ const User = sequelize.define('user', {
     unique: true,
   },
   //password?? Lookup Passport
-  boardId: {
-    type: Sequelize.INTEGER
-  }
 });
 
 User.hasOne( Board );

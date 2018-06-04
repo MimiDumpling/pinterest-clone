@@ -6,6 +6,10 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.BIGINT
+      },
+      // if it's not the root board
+      parentId: {
         type: Sequelize.INTEGER
       },
       title: {
@@ -13,7 +17,12 @@ module.exports = {
         type: Sequelize.STRING
       },
       userId: {
-        type: Sequelize.BIGINT
+        type: Sequelize.BIGINT,
+        allowNull: false,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
       },
       createdAt: {
         allowNull: false,

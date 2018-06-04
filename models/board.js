@@ -6,13 +6,21 @@ const Board = sequelize.define('board', {
     type: Sequelize.STRING, 
     primaryKey: true 
   },
-  title: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
   parentId: {
     type: Sequelize.INTEGER
-  }
+  },
+  title: {
+    allowNull: false,
+    type: Sequelize.STRING
+  },
+  userId: {
+    type: Sequelize.BIGINT,
+    allowNull: false,
+    references: {
+      model: 'Users',
+      key: 'id'
+    },
+  },
 });
 
 Board.belongsToMany( Post, { through: 'BoardPost' } );
