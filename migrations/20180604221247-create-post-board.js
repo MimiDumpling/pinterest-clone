@@ -11,7 +11,7 @@ module.exports = {
       postId: {
         type: Sequelize.BIGINT,
         references: {
-          model: 'posts',
+          model: 'Posts',
           key: 'id'
         },
         allowNull: false
@@ -19,11 +19,11 @@ module.exports = {
       boardId: {
         type: Sequelize.BIGINT,
         references: {
-          model: 'boards',
+          model: 'Boards',
           key: 'id'
         },
         allowNull: false
-      }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
