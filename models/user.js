@@ -1,10 +1,22 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
-  var User = sequelize.define('User', {
-    userName: DataTypes.STRING
-  }, {});
-  User.associate = function(models) {
-    // associations can be defined here
-  };
-  return User;
-};
+const Sequelize = require( 'sequelize' );
+
+const User = sequelize.define('user', {
+  identifier: { 
+    type: Sequelize.STRING, 
+    primaryKey: true, 
+  },  
+  userName: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    unique: true,
+  },
+  //password?? Lookup Passport
+  boardId: {
+    type: Sequelize.INTEGER
+  }
+});
+
+User.hasOne( Board );
+User.sync({ force: true });
+
+module.exports = User;
