@@ -39,7 +39,7 @@ class Post extends React.Component {
   }
 }
 
-// one json method: sets State
+// json method: sets State
 function changeState(json) {
   this.setState({
     post: json,
@@ -56,9 +56,9 @@ function base( path, jsonMethod ) {
   fetch('www.pinterestclone.com' + path)
     .then(response => response.json())
     .then(jsonMethod)
-    })
 };
 
+// helper methods
 function getPost(id) {
   return base('/post/' + id, logJson)
 };
@@ -67,8 +67,8 @@ function getPosts() {
   return base('/posts', logJson)
 };
 
-function getComment(num) {
-  //not sure if this is supported by jsonplaceholder
+function getComment(id) {
+  // not sure if this is supported by jsonplaceholder
   return base('/comment/' + id, logJson)
 };
 
@@ -77,5 +77,10 @@ function getComments() {
 };
 
 function getCommentsForPost(id) {
-  return base('	/comments?postId=' + id, logJson)
+  return base('/comments?postId=' + id, logJson)
 };
+
+// template strings
+// arrow functions
+
+export {getPost, getPosts,}
